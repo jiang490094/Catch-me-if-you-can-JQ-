@@ -10,81 +10,15 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="CatchMeIfYouCan.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.0/moment.min.js"></script>
-    <style>
-      .wrap {
-        position: relative;
-        width: 800px;
-        height: 400px;
-        background-color: #eee;
-        /* margin-bottom: 10vh; */
-        border-radius: 15px;
-      }
-
-      .btn_wrap {
-        text-align: center;
-        position: relative;
-        width: 800px;
-        margin: 3vh;
-      }
-
-      .wrap2 {
-        width: 100vw;
-        position: relative;
-        background-color: #eee;
-      }
-
-      .box {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        background-color: lightseagreen;
-        border-radius: 100px;
-      }
-
-      .box2 {
-        position: absolute;
-        top: 380px;
-        left: 780px;
-        width: 20px;
-        height: 20px;
-        background-color: rgb(240, 199, 86);
-        border-radius: 100px;
-      }
-
-      .countdown {
-        width: 250px;
-        height: 100px;
-        background: white;
-        font-size: 2em;
-        color: #fff;
-
-        /* Centering everything */
-        position: absolute;
-        left: 10%;
-        top: 20%;
-        margin-left: -125px;
-        margin-top: -50px;
-
-        text-align: center;
-        line-height: 100px;
-
-        border: 5px solid #e54b6a42;
-        border-bottom: 5px solid #e54b6a42;
-        background-image: linear-gradient(#bfeafd, rgb(250, 200, 170));
-        border-radius: 15px;
-      }
-    </style>
   </head>
   <body>
     <audio
-    id="music2"
-    src="Pac-man theme remix - By Arsenic1987.mp3"
-    loop="loop"
-  >
-  </audio>
+      id="music2"
+      src="Pac-man theme remix - By Arsenic1987.mp3"
+      loop="loop"
+    ></audio>
 
     <h1 class="mt-5" style="text-align: center">Catch me if you can!</h1>
 
@@ -95,16 +29,28 @@
       <div class="box2"></div>
     </div>
 
-<a href="javascript:playPause();">
-    <div class="btn_wrap mx-auto mt-5" >
-      <button class="start btn btn-primary btn-lg" id="music_btn2">開始</button>
-      <!-- <button class="btn btn-primary">暫停</button> --> 
+    <div id="gameRules">
+      <div class="title">【 Game Rules 】</div>
+      <div class="detailRules">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum
+        provident qui optio! Excepturi iure vel sapiente placeat, ipsa explicabo
+        beatae obcaecati, officia eveniet optio laborum, quidem dignissimos at
+        aut quos.
+      </div>
     </div>
-</a> 
 
-    <div class="wrap2 d-flex">
-      <!-- 左邊 -->
-      <div class="py-3 text-center" style="margin-left: 6%">
+    <a href="javascript:playPause();">
+      <div class="btn_wrap mx-auto mt-5">
+        <button class="start btn btn-primary btn-lg" id="music_btn2">
+          開始
+        </button>
+        <!-- <button class="btn btn-primary">暫停</button> -->
+      </div>
+    </a>
+
+    <!-- <div class="wrap2 d-flex"> -->
+    <!-- 左邊 -->
+    <!-- <div class="py-3 text-center" style="margin-left: 6%">
         <div class="py-1">
           <button class="btn btn-info" id="S">S</button>
         </div>
@@ -122,18 +68,18 @@
         <div class="py-1">
           <button class="btn btn-info" id="X">X</button>
         </div>
-      </div>
-      <!-- 左邊結束 -->
+      </div> -->
+    <!-- 左邊結束 -->
 
-      <!-- 右邊 -->
-      <div class="py-3 text-center" style="margin-left: 75%">
+    <!-- 右邊 -->
+    <!-- <div class="py-3 text-center" style="margin-left: 75%">
         <div class="py-1">
           <button class="btn btn-warning" id="up">u</button>
         </div>
 
         <div>
           <button class="btn btn-warning" id="left" style="margin-right: 20px">
-            <
+            
           </button>
 
           <button class="btn btn-warning" id="right" style="margin-left: 20px">
@@ -144,9 +90,9 @@
         <div class="py-1">
           <button class="btn btn-warning" id="down">d</button>
         </div>
-      </div>
-      <!-- 右邊結束 -->
-    </div>
+      </div> -->
+    <!-- 右邊結束 -->
+    <!-- </div> -->
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
