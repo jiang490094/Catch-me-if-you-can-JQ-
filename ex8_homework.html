@@ -49,9 +49,7 @@
 
     <a href="javascript:playPause();">
       <div class="btn_wrap mx-auto mt-5">
-        <button class="start btn btn-primary btn-lg" id="music_btn2">
-          開始
-        </button>
+        <button class="start btn btn-primary btn-lg" id="music_btn2">開始</button>
         <!-- <button class="btn btn-primary">暫停</button> -->
       </div>
     </a>
@@ -110,6 +108,7 @@
 
     <!-- 開始鍵相關功能 -->
     <script>
+     
       // 倒數相關
       var duration = moment.duration({
         //   'minutes': 5,
@@ -120,56 +119,15 @@
       // 倒數相關結束
 
       $(".start").click(function () {
-        let a = $(".start").text();
-        // console.log(a);
-        if (a == "開始") {
-          $(".start").text("人參4沒有暫停這回事der");
+        let start = $(".start").text();
+        console.log("1", start);
+        if (start == "開始") {
+          console.log("2", start);
+          $(".start").text("重來");
           $(".start").css("background", "orange").css("border", "orange");
 
-          // 連動點音樂鍵
-          $(".music").click;
-
-          // 倒數計時器
-          var timer = setInterval(function () {
-            timestamp = new Date(timestamp.getTime() + interval * 1000);
-
-            duration = moment.duration(
-              duration.asSeconds() - interval,
-              "seconds"
-            );
-            var min = duration.minutes();
-            var sec = duration.seconds();
-
-            sec -= 1;
-            if (min < 0) return clearInterval(timer);
-            if (min < 10 && min.length != 2) min = "0" + min;
-            if (sec < 0 && min != 0) {
-              min -= 1;
-              sec = 59;
-            } else if (sec < 10 && sec.length != 2) sec = "0" + sec;
-
-            $(".countdown").text(sec + "  " + "sec");
-            if (sec == 0) clearInterval(timer);
-            if (sec == 0)
-              setInterval(function () {
-                if (!isGameover) {
-                  alert("The left is Win~");
-                  isGameover = true;
-                }
-                location.reload();
-              }, 100);
-          }, 1000);
-          // 倒數計時器結束
-        } else {
-          $(".start").text("開始");
-          $(".start").css("background", "#007bff");
-        }
-      });
-    </script>
-
-    <!-- 右邊玩家 -->
-    <script>
-      $(document).on("keydown", function (e) {
+          //右邊玩家
+          $(document).on("keydown", function (e) {
         // console.log("event:", e);看鍵盤號碼
         let code2 = e.which;
         let newLeft = parseInt($(".box2").css("left"));
@@ -199,35 +157,77 @@
 
         pass();
       });
-    </script>
 
-    <!-- 左邊玩家 -->
-    <script>
-      let isGameover = false;
+      // 左邊玩家
       $(document).on("keydown", function (e) {
         // console.log("event:", e);看鍵盤號碼
         let code = e.which;
         let newLeft = parseInt($(".box").css("left"));
         let newTop = parseInt($(".box").css("top"));
 
-        if (code === 90) {
+        if (code === 65) {
           if (newLeft > 0) {
             $(".box").css("left", "-=20");
           }
-        } else if (code === 83) {
+        } else if (code === 87) {
           if (newTop > 0) {
             $(".box").css("top", "-=20");
           }
-        } else if (code === 67) {
+        } else if (code === 68) {
           if (newLeft < 800 - 20) {
             $(".box").css("left", "+=20");
           }
-        } else if (code === 88) {
+        } else if (code === 83) {
           if (newTop < 400 - 20) {
             $(".box").css("top", "+=20");
           }
         }
       });
+        
+    // 倒數計時器
+    var timer = setInterval(function () {
+            timestamp = new Date(timestamp.getTime() + interval * 1000);
+
+            duration = moment.duration(
+              duration.asSeconds() - interval,
+              "seconds"
+            );
+            var min = duration.minutes();
+            var sec = duration.seconds();
+
+            sec -= 1;
+            if (min < 0) return clearInterval(timer);
+            if (min < 10 && min.length != 2) min = "0" + min;
+            if (sec < 0 && min != 0) {
+              min -= 1;
+              sec = 59;
+            } else if (sec < 10 && sec.length != 2) sec = "0" + sec;
+
+            $(".countdown").text(sec + "  " + "sec");
+            if (sec == 0) clearInterval(timer);
+            if (sec == 0)
+              setInterval(function () {
+                if (!isGameover) {
+                  alert("The blue is Win~");
+                  isGameover = true;
+                }
+                location.reload();
+              }, 100);
+          }, 1000);
+          // 倒數計時器結束
+    } else {
+
+          $(".start").text("開始");
+          $(".start").css("background", "#007bff");
+          location.reload();
+        }
+      });
+    </script>
+
+
+    
+    <script>
+      let isGameover = false;
 
       function pass() {
         // console.log($(".box").css("top"));
@@ -240,7 +240,7 @@
           !isGameover
         ) {
           setTimeout(() => {
-            alert("The right is Win~");
+            alert("The yellow is Win~");
             location.reload();
           }, 100);
           isGameover = true;
@@ -249,8 +249,8 @@
 
       // let a = $(".start").text();
       // var intervalID = setInterval(function () {
-      //   if(!isGameover && a == "人參4沒有暫停這回事der"){
-      //     alert("The left is Win~");
+      //   if(!isGameover && a == "重來"){
+      //     alert("The blue is Win~");
       //     isGameover = true;
       //   }
       // }, 3000);
